@@ -1,5 +1,7 @@
 # chatgpt-flask-demo
-This is a sample repo of langchain with Azure OpenAI 
+
+This is a sample repo of langchain with Azure OpenAI.
+
 You can create your own functions and use them as tools (for example integrating your own APIs)
 
 
