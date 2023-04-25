@@ -23,6 +23,11 @@ os.environ["LANGCHAIN_HANDLER"] = "langchain"
 os.environ["BING_SUBSCRIPTION_KEY"] = "BING KEY"
 os.environ["BING_SEARCH_URL"] = "https://api.bing.microsoft.com/v7.0/search"
 
+print(os.environ)
+print(os.environ["OPENAI_API_KEY"])
+print(os.environ["OPENAI_API_BASE"])
+
+
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 
