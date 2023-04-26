@@ -32,7 +32,7 @@ def get_response(prompt):
     return message
 def askgpt(question):
     session['chat_log'].append({'role': 'user', 'content': question})
-    response = openai.ChatCompletion.create(engine='chat', messages=session['chat_log'])
+    response = openai.ChatCompletion.create(engine=deployment_id, messages=session['chat_log'])
     answer = response.choices[0]['message']['content']
     session['chat_log'].append({'role': 'assistant', 'content': answer})
     session.modified = True
