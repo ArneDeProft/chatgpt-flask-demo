@@ -34,9 +34,8 @@ def askgptAPI(question):
     print(json)
 
     response = json.loads(r.text)
-    formatted_response = json.dumps(response, indent=4) 
-    print(formatted_response)
-    return formatted_response
+    print(response)
+    return response
 
 
 @app.route('/')
