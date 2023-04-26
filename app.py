@@ -27,7 +27,7 @@ def askgptAPI(question):
         "api-key": os.environ["OPENAI_API_KEY"],
         "Content-Type": "application/json"
       },
-      json = payload
+      json = question
     )
 
     response = json.loads(r.text)
