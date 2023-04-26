@@ -49,7 +49,7 @@ def get_response_from_api():
     # rq = json.loads(request.data)
     # message = rq["prompt"]
     # print("message:" + message)
-    answer = askgptAPI(request.data)
+    answer = askgptAPI(json.loads(request.data))
     print (answer)
     response = {"response":answer}
     return response
