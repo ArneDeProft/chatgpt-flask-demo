@@ -42,7 +42,10 @@ def home():
 @app.route('/message', methods=['POST'])
 def get_response_from_api():
     print(request.data, flush=True)
+    rq = json.loads(request.data)
+    message = rq["prompt"]
     answer = askgptAPI(message)
+    print (answer)
     response = {"response":answer}
     return response
 if __name__ == '__main__':
