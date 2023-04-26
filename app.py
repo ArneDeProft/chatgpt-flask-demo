@@ -46,10 +46,12 @@ def home():
 @app.route('/message', methods=['POST'])
 def get_response_from_api():
     print(request.data, flush=True)
-    # rq = json.loads(request.data)
-    # message = rq["prompt"]
-    # print("message:" + message)
-    answer = askgptAPI(json.loads(request.data))
+    rq = json.loads(request.data)
+    message = rq["prompt"]
+    payload = '{"messages":[{"role": "system", "content": "'+ message+'"}]}'
+    print("message:" + message)
+    print(payload)
+    answer = askgptAPI(payload)
     print (answer)
     response = {"response":answer}
     return response
