@@ -26,7 +26,7 @@ def askgptAPI(question):
     print(question)
     r = requests.post(url, 
       headers={
-        "api-key": os.environ["OPENAI_API_KEY"],
+        "Ocp-Apim-Subscription-Key": os.environ["OPENAI_API_KEY"],
         "Content-Type": "application/json"
       },
       json = question
