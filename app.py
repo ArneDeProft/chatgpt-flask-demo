@@ -4,6 +4,8 @@ import json
 from flask import Flask, render_template, request, jsonify, session
 import os
 
+accesstoken = "empty"
+
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
@@ -40,6 +42,10 @@ def askgptAPI(question):
 
 @app.route('/')
 def home():
+    print(request.headers)
+    print (accesstoken)
+    accesstoken = request.headers.get('x-ms-token-aad-access-token')
+    print (accesstoken)
     return render_template('index.html')
 
 @app.route('/message', methods=['POST'])
