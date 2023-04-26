@@ -22,6 +22,8 @@ def askgpt(question):
     return  answer
 
 def askgptAPI(question):
+    print("q")
+    print(question)
     r = requests.post(url, 
       headers={
         "api-key": os.environ["OPENAI_API_KEY"],
@@ -44,10 +46,10 @@ def home():
 @app.route('/message', methods=['POST'])
 def get_response_from_api():
     print(request.data, flush=True)
-    rq = json.loads(request.data)
-    message = rq["prompt"]
-    print("message:" + message)
-    answer = askgptAPI(message)
+    # rq = json.loads(request.data)
+    # message = rq["prompt"]
+    # print("message:" + message)
+    answer = askgptAPI(request.data)
     print (answer)
     response = {"response":answer}
     return response
