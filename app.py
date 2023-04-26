@@ -16,7 +16,7 @@ openai.api_base =  os.environ["OPENAI_API_BASE"] # your endpoint should look lik
 openai.api_type = 'azure'
 openai.api_version = "2023-03-15-preview"
 
-deployment_id = "chat"
+deployment_id = "chatgpt"
 def get_response(prompt):
     print("PROMPT"+prompt,flush=True)
     completion=openai.Completion.create(
