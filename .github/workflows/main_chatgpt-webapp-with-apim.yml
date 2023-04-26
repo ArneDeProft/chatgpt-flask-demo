@@ -7,7 +7,7 @@ name: Build and deploy Python app to Azure Web App - chatgpt-webapp-with-apim
 on:
   push:
     branches:
-      - main
+      - apim-basic-auth
   workflow_dispatch:
 
 jobs:
