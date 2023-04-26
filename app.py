@@ -29,9 +29,11 @@ def askgptAPI(question):
       },
       json = question
     )
+    print(json)
 
     response = json.loads(r.text)
     formatted_response = json.dumps(response, indent=4) 
+    print(formatted_response)
     return formatted_response
 
 
@@ -44,6 +46,7 @@ def get_response_from_api():
     print(request.data, flush=True)
     rq = json.loads(request.data)
     message = rq["prompt"]
+    print("message:" + message)
     answer = askgptAPI(message)
     print (answer)
     response = {"response":answer}
