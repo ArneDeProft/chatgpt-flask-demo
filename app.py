@@ -7,12 +7,12 @@ import os
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
-# openai.api_key = os.environ["OPENAI_API_KEY"]
-# openai.api_base =  os.environ["OPENAI_API_BASE"] # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+print(os.environ["OPENAI_API_KEY"])
+print(os.environ["OPENAI_API_BASE"]) # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
 
 deployment_id = "chatgpt"
 url = os.environ["OPENAI_API_BASE"] + "/openai/deployments/" + deployment_id + "/chat/completions?api-version=2023-03-15-preview" 
-
+print(url)
 def askgpt(question):
     session['chat_log'].append({'role': 'user', 'content': question})
     response = openai.ChatCompletion.create(engine=deployment_id, messages=session['chat_log'])
