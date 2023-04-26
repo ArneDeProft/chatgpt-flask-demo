@@ -53,6 +53,7 @@ def get_response_from_api():
     print("message:" + message)
     print(payload)
     answer = askgptAPI(payload)
+    answer = answer["choices"]["message"]["content"]
     print (answer)
     response = {"response":answer}
     return response
