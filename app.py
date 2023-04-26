@@ -27,6 +27,8 @@ def askgptAPI(question):
     global accesstoken
     print("q")
     print(question)
+    print("accesstoken:")
+    print(accesstoken)
     r = requests.post(url, 
       headers={
         "Ocp-Apim-Subscription-Key": os.environ["OPENAI_API_KEY"],
