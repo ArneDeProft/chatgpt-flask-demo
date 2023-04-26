@@ -49,6 +49,7 @@ def get_response_from_api():
     rq = json.loads(request.data)
     message = rq["prompt"]
     payload = '{"messages":[{"role": "system", "content": "'+ message+'"}]}'
+    payload = json.loads(payload)
     print("message:" + message)
     print(payload)
     answer = askgptAPI(payload)
