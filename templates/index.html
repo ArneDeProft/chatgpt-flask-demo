@@ -93,7 +93,7 @@ background: #eee;
                 url: '/message',
                 type: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify({ message: message }),
+                data: JSON.stringify({ prompt: message }),
                 success: function (response) {
                     addMessage('AI', response.response);
                 },
