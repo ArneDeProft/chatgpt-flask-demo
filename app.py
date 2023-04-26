@@ -33,7 +33,7 @@ def askgptAPI(question):
       headers={
         "Ocp-Apim-Subscription-Key": os.environ["OPENAI_API_KEY"],
         "Content-Type": "application/json",
-        "Authorization": "Bearer " + accesstoken
+        "Authorization": "Bearer " + request.headers.get('x-ms-token-aad-access-token')
       },
       json = question
     )
@@ -48,8 +48,6 @@ def askgptAPI(question):
 def home():
     global accesstoken
     accesstoken = request.headers.get('x-ms-token-aad-access-token')
-    print("all headers:")
-    print(request.headers)
     return render_template('index.html')
 
 @app.route('/message', methods=['POST'])
