@@ -24,12 +24,14 @@ def askgpt(question):
     return  answer
 
 def askgptAPI(question):
+    global accesstoken
     print("q")
     print(question)
     r = requests.post(url, 
       headers={
         "api-key": os.environ["OPENAI_API_KEY"],
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + accesstoken
       },
       json = question
     )
@@ -42,7 +44,8 @@ def askgptAPI(question):
 
 @app.route('/')
 def home():
-    global accesstoken = request.headers.get('x-ms-token-aad-access-token')
+    global accesstoken
+    accesstoken = request.headers.get('x-ms-token-aad-access-token')
     return render_template('index.html')
 
 @app.route('/message', methods=['POST'])
