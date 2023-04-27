@@ -1,5 +1,5 @@
 import requests
-# import openai
+import openai
 import json
 from flask import Flask, render_template, request, jsonify, session
 import os
