@@ -48,7 +48,7 @@ def home():
 def get_response_from_api():
     print(request.data, flush=True)
     rq = json.loads(request.data)
-    message = rq["message"]
+    message = rq["prompt"]
     #answer = get_response(message)
     answer = askgpt(message)
     response = {"response":answer}
